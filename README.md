@@ -12,5 +12,5 @@ MySQL: https://dev.mysql.com/downloads/installer/ (Use the web-community install
 - I have included a create-db.sql file, which you can open in a new query tab and use to create the database and table, or you can do this manually in the empty query page.
 - Once you have your database and table set up, keep in mind that you can enter the query "SELECT * FROM users;" (without quotes) into the query page at any time to see the actual structure and contents of your table.
 - To connect to the MySQL server through the application, open the .env file in a text editor and set the DATABASE_PASSWORD variable to your MySQL root password (NOTE: If your database name in MySQL is different than what is shown for DATABASE, or if any of the other .env variables are different for that matter, then their values also need to be changed).
--
+
 Once you have done all of the above, you should be able to navigate to your application folder and use the command "npm start", which will start the server and run the application with nodemon. Now, if you type "localhost:5000" into your web browser, it should bring you to the site. If there are any problems with installation or configuration, or you feel that I missed a step, just let me know.
