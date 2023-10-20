@@ -20,6 +20,7 @@ MySQL: https://dev.mysql.com/downloads/installer/ (Use the web-community install
 
 - To connect to the MySQL server through the application, open the .env file in a text editor and set the DATABASE_PASSWORD variable to your MySQL root password (NOTE: If your database name in MySQL is different than what is shown for DATABASE, or if any of the other .env variables are different for that matter, then their values also need to be changed).
 - Lastly, you need to set up your environment variables, so create a file called ```.env``` in the project folder and copy the data from the code block below into it. You will need to add your MySQL root password under ```DATABASE_PASSWORD``` as well as create a session secret key, which can be just about anything that is somewhat secure, and add it under under ```SESSION_SECRET``` (NOTE: If any of your other environment variables—such as ```DATABASE```—are different, then they will need to be updated as well, although this is unlikely).
+  - In earlier versions of the repo, the ```.env``` was included, but this was removed to prevent any overwriting when pulling, so if you are running a version that did include the ```.env``` file, please updated it according to the code block below.
 
 ```
 DATABASE = login_db
