@@ -8,17 +8,31 @@
 <body>
 
     {{!-- Navigation links --}}
-    <nav>
+    
+	<nav>
         <h4>Node MySQL Login</h4>
         <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="/login">Login</a></li>
             <li><a href="/register">Register</a></li>
+			{{#if sessionUser}}
+				<li><a href="/logout/">Logout</a></li>
+			{{else}}
+				<li><a href="/login">Login</a></li>
+			{{/if}}
         </ul>
     </nav>
 	
-	{{!-- Body --}}
-    <div class="container mt-4">
+    {{!-- Body --}}
+	
+	{{#if sessionUser}}	
+		<div class="container mt-4">
+			<div class="mt-4 p-3 bg-success text-white rounded">
+				<marquee direction="right"><h2 class="mb-0">Hello {{sessionUser}}!</h2></marquee>
+			</div>
+		</div>
+	{{/if}}
+	
+	<div class="container mt-4">
         <div class="card mx-auto" style="width: 18rem;">            
             <div class="card-header">Register Form</div>    
             <div class="card-body">
