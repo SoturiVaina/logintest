@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>    
+<head>
+    <meta charset="UTF-8">
+	<link rel="stylesheet" href="/styles.css">   
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
 
-{{!-- Navigation links --}}
+    {{!-- Navigation links --}}
     <nav>
         <h4>Node MySQL Login</h4>
         <ul>
@@ -17,13 +19,13 @@
 	
 	{{!-- Body --}}
     <div class="container mt-4">
-        <div class="card" style="width: 18rem;">            
-            <div class="card-header">Register Form</div>    
+        <div class="card mx-auto" style="width: 18rem;">            
+            <div class="card-header">Login Form</div>    
             <div class="card-body">
                 <form action="/auth/login" method="POST">
                     <div class="mb-3">
-                        <label for="email-reg" class="form-label">Email</label>
-                        <input type="text" class="form-control" id="email-reg" name="email">                        
+                        <label for="username-reg" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="username-reg" name="username">                        
                     </div>
                     <div class="mb-3">
                         <label for="password-reg" class="form-label">Password</label>
@@ -35,9 +37,11 @@
             </div>
         </div>
     </div>
+	
 	{{#if message}}
 		<h4 class="alert alert-danger mt-4">{{message}}</h4>
 	{{/if}}
+	
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>

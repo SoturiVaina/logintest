@@ -90,14 +90,14 @@ app.post('/auth/register', (request, response) => { // Create '/auth/register' r
 	Other Registration Requirements...
 	
 	*/
-	db.query('SELECT email FROM users WHERE email = ?', [email], async (userError, userResponse) => { // Query the database to get user's email based on given email
+	db.query('SELECT username FROM users WHERE username = ?', [username], async (userError, userResponse) => { // Query the database to get user's username based on given username
 		if (userError) {
 			console.log('Error querying the database:', userError);
 			return;
 		}
 		
-		if (userResponse.length > 0) { // If the query produces a result (email already exists)
-			return response.render('register', { message: 'This email is already in use' }); // Render 'register' message using app.post response
+		if (userResponse.length > 0) { // If the query produces a result (username already exists)
+			return response.render('register', { message: 'This username is already in use' }); // Render 'register' message using app.post response
 		}
 		
 		const saltRounds = 10;
@@ -118,26 +118,36 @@ app.post('/auth/register', (request, response) => { // Create '/auth/register' r
 	});
 });
 
-/* Register route for HTTP post requests for '/auth/logic' (account login) */
+/* Register route for HTTP post requests for '/auth/login' (account login) */
 
-app.post('/auth/login', (request, response) => { // Create '/auth/register' route
-	const { email, password } = request.body; // Retrieve user's form values
+app.post('/auth/login', (request, response) => { // Create '/auth/login' route
+	const { username, password } = request.body; // Retrieve user's form values
 	
-	db.query('SELECT email, password FROM users WHERE email = ?', [email], async (userError, userResponse) => { // Query the database to get user's email and password based on given email
+	if (username == "" && password == "") { // If none of the fields are provided
+		return response.render('login', { message: 'Please enter each field' }); // Render 'login' message using app.post response
+	}
+	else if (username == "") { // If the username specifically is not provided
+		return response.render('login', { message: 'Please enter your username' }); // Render 'login' message using app.post response
+	}
+	else if (password == "") { // If the password specifically is not provided
+		return response.render('login', { message: 'Please enter your password' }); // Render 'login' message using app.post response
+	}
+	
+	db.query('SELECT username, password FROM users WHERE username = ?', [username], async (userError, userResponse) => { // Query the database to get user's username and password based on given username
 		if (userError) {
 			console.log('Error querying the database:', userError);
 			return;
 		}
 		
-		if (userResponse.length === 0) { // If the query doesn't produce a result (email / user doesn't exist)
-			return response.render('login', { message: 'Email not found' }); // Render 'login' message using app.post response
+		if (userResponse.length === 0) { // If the query doesn't produce a result (username / user doesn't exist)
+			return response.render('login', { message: 'Username not found' }); // Render 'login' message using app.post response
 		}
 		
 		const user = userResponse[0]; // Get the user row from database table
 		
 		if (await bcrypt.compare(password, user.password)) { // Check if password is valid
 			request.session.message = 'Successfully logged in!'; // Store status message in session
-			return response.redirect('/'); // Redirect to '/index' using app.post response
+			return response.redirect('/'); // Redirect to '/' (index) using app.post response
 		}
 		else {
 			return response.render('login', { message: 'Incorrect password' }); // Render 'login' message using app.post response
