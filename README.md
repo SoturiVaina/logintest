@@ -1,4 +1,4 @@
-## This application reqires Node.js dependencies and a MySQL database.
+## This application requires Node.js dependencies and a MySQL database.
 ### REMEMBER: When pulling from the repository after initial installation, be sure to update your Node.js project and MySQL database as explained below.
 ### NOTE: Much of the code for this application is based on this tutorial: https://blog.logrocket.com/building-simple-login-form-node-js/
 
