@@ -14,8 +14,8 @@ MySQL: https://dev.mysql.com/downloads/installer/ (Use the web-community install
   - https://youtu.be/7S_tz1z_5bA?si=q64HaxnL2QVUPzlM&t=588
   - When setting the MySQL root password, MAKE SURE to remember/keep the password as it will be used later in configuration.
 - In the MySQL Workbench, you should see a local connection under MySQL Connections (if not, refer back to the video guide), which you should open.
-- I have included a ```create-db.sql file```, which you can open in a new query tab and use to create the database and table (lightning bolt button to execute queries), or you can enter these queries in manually on the empty query page.
-- I have also included an ```update-db.sql file```, which you can run in your server to update the database and tables if you pulled from the repo and the design has changed. If this is your first time setting up the table with ```create-db.sql```, the queries are already updated so you do not have to worry about this (NOTE: The queries in ```update-db.sql``` will also delete all of the content of the table).
+- I have included a ```create-db.sql``` file, which you can open in a new query tab and use to create the database and table (lightning bolt button to execute queries), or you can enter these queries in manually on the empty query page.
+- I have also included an ```update-db.sql``` file, which you can run in your server to update the database and tables if you pulled from the repo and the design has changed. If this is your first time setting up the table with ```create-db.sql```, the queries are already updated so you do not have to worry about this (NOTE: The queries in ```update-db.sql``` will also delete all of the content of the table).
   - Once you have your database and table set up, keep in mind that at any time you can enter the query ```SELECT * FROM users;``` to see the actual structure and contents of your table, as well as the query ```TRUNCATE users;``` to delete all of the entries in your table.
 <br>
 
