@@ -19,9 +19,10 @@ MySQL: https://dev.mysql.com/downloads/installer/ (Use the web-community install
   - Once you have your database and table set up, keep in mind that at any time you can enter the query ```SELECT * FROM users;``` to see the actual structure and contents of your table, as well as the query ```TRUNCATE users;``` to delete all of the entries in your table.
 <br>
 
-- Lastly, you need to set up your environment variables, so create a file called ```.env``` in the project folder and copy the data from the code block below into it. You will need to add your MySQL root password under ```DATABASE_PASSWORD``` as well as create a session secret key, which can be just about anything that is somewhat secure, and add it under under ```SESSION_SECRET``` (NOTE: If any of your other environment variables—such as ```DATABASE```—are different, then they will need to be updated as well, although this is unlikely).
+- Lastly, you need to set up your environment variables, so create a file called ```.env``` in the project folder and copy the data from the code block below into it. You will need to add your MySQL root password under ```DATABASE_PASSWORD``` as well as create a session secret key, which can be just about any somewhat-secure combination of characters for now, and add it under under ```SESSION_SECRET``` (NOTE: If any of your other environment variables—such as ```DATABASE```—are different, then they will need to be updated as well, although this is unlikely if you are following the instructions).
   - In earlier versions of the repo, the ```.env``` was included, but this was removed to prevent any overwriting when pulling, so if you are running a version that did include the ```.env``` file, please updated it according to the code block below.
 
+#### ```.env``` File Contents:
 ```
 DATABASE = login_db
 DATABASE_HOST = localhost
